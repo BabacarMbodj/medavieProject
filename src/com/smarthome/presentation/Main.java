@@ -3,6 +3,7 @@ package com.smarthome.presentation;
 import java.util.Arrays;
 import java.util.List;
 
+import com.smarthome.application.UpdateService;
 import com.smarthome.domain.Appliance;
 import com.smarthome.infrastructure.devices.Light;
 import com.smarthome.infrastructure.devices.Fan;
@@ -27,6 +28,10 @@ public class Main {
             appliance.turnOff();
         }
     );
+
+     // Run the update check
+        UpdateService updateService = new UpdateService(appliances);
+        updateService.checkAndUpdate();
 
        
     }
